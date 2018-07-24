@@ -6,13 +6,6 @@ cmake_minimum_required(VERSION 2.8.11)
 
 project(myproject)
 
-# Set up all the directory locations
-# This is the directory where Qt was installed
-set( qt_distro C:\\Qt\\5.6\\msvc2013_64\\)
-
-# Add the path to the Qt installation/files
-set(CMAKE_PREFIX_PATH ${qt_distro})
-
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
