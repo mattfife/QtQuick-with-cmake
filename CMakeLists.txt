@@ -25,7 +25,7 @@ set(SOURCE
 )
 
 # Tell CMake to create the helloworld executable
-add_executable(helloworld WIN32 ${SOURCE} ${qml_QRC})
+add_executable(helloworld ${SOURCE} ${qml_QRC})
 
 # Use the Qml/Quick modules from Qt 5.
 target_link_libraries(helloworld Qt5::Qml Qt5::Quick)
