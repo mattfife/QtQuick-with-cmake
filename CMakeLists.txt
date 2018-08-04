@@ -3,16 +3,8 @@
 #
 cmake_minimum_required(VERSION 2.8.11)
 
-set(CMAKE_GENERATOR "Visual Studio 12 Win64")
 
 project(myproject)
-
-# Set up all the directory locations
-# This is the directory where Qt was installed
-set( qt_distro C:\\Qt\\5.6\\msvc2013_64\\)
-
-# Add the path to the Qt installation/files
-set(CMAKE_PREFIX_PATH ${qt_distro})
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -21,10 +13,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 # Find the Qt libraries for Qt Quick/QML
-find_package(Qt5Core CONFIG REQUIRED Qml Quick Gui)
-find_package(Qt5Quick)
-find_package(Qt5Qml)
-find_package(Qt5Gui)
+find_package(Qt5 REQUIRED Qml Quick Gui)
 
 # add the qml.qrc file
 qt5_add_resources(qml_QRC src/qml.qrc)
@@ -36,7 +25,7 @@ set(SOURCE
 )
 
 # Tell CMake to create the helloworld executable
-add_executable(helloworld WIN32 ${SOURCE} ${qml_QRC})
+add_executable(helloworld ${SOURCE} ${qml_QRC})
 
 # Use the Qml/Quick modules from Qt 5.
 target_link_libraries(helloworld Qt5::Qml Qt5::Quick)
